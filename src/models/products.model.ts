@@ -9,10 +9,10 @@ export default class ProductModel {
   }
 
   public async create(product: Product): Promise<Product> {
-    const { name, amount } = product;
+    const { name, amount, orderId } = product;
     const result = await this.connection.execute<ResultSetHeader>(
-      'INSERT INTO products (name, amount) VALUES (?, ?)',
-      [name, amount],
+      'INSERT INTO Trybesmith.Products (name, amount, orderId) VALUES (?, ?, ?)',
+      [name, amount, orderId],
     );
     const [dataInserted] = result;
     const { insertId } = dataInserted;
@@ -20,7 +20,7 @@ export default class ProductModel {
   }
   
   public async getAll(): Promise<Product[]> {
-    const result = await this.connection.execute('SELECT * FROM products');
+    const result = await this.connection.execute('SELECT * FROM Trybesmith.Products');
     const [rows] = result;
     return rows as Product[];
   }
