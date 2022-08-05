@@ -4,20 +4,16 @@ import { StatusCodes } from 'http-status-codes';
 import ProductsService from '../services/products.service';
 
 export default class ProductsController {
-  public service: ProductsService;
+  constructor(private productsService = new ProductsService()) { }
 
-  constructor(service: ProductsService = new ProductsService()) {
-    this.service = service;
-  }
-
-  public async getAll(req: Request, res: Response): Promise<Response> {
-    const products = await this.service.getAll();
+  public getAll = async (_req: Request, res: Response) => {
+    const products = await this.productsService.getAll();
     return res.status(StatusCodes.OK).json(products);
-  }
+  };
 
-  public async create(req: Request, res: Response) {
+  public create = async (req: Request, res: Response) => {
     const product = req.body;
-    const productCreated = await this.service.create(product);
+    const productCreated = await this.productsService.create(product);
     res.status(StatusCodes.CREATED).json(productCreated);
-  }
+  };
 }
