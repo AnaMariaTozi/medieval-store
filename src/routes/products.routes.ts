@@ -6,6 +6,6 @@ const productsRouter = Router();
 
 const productsController = new ProductsController();
 
-productsRouter.get('/restaurants', (req, res) => productsController.getAll(req, res));
+productsRouter.get('/products', (req, res) => productsController.getAll(req, res));
 
 export default productsRouter;
