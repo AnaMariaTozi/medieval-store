@@ -20,7 +20,7 @@ export default class OrderModel {
     
   public async getAll(): Promise<Order[]> {
     const result = await this.connection.execute(
-      `SELECT O.id, O.userId, P.id AS productsIds
+      `SELECT O.id, O.userId, JSON_ARRAYAGG(P.id) AS productsIds
             FROM 
             Trybesmith.Orders AS O
             JOIN 
