@@ -5,6 +5,8 @@
 
 - Foram criados alguns endpoints que irão ler e escrever em um banco de dados, utilizando o MySQL.
 
+- A API utiliza a arquitetura MSC (Models, Services e Controllers) e padrão REST.
+
 - Utiliza o JWT para gerar tokens de autorização para login e cadastro de pessoas usuárias e pedidos.
 
 </div>
