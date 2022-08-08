@@ -1,26 +1,10 @@
-import dotenv from 'dotenv';
-import { Jwt } from 'jsonwebtoken';
+import { sign } from 'jsonwebtoken';
+import { User } from '../interfaces/users.interface';
 
 export default class JwtService {
-    // private JWT_SECRET: MySecret; precisso criar uma var para salvar o meu segredo, ja que não posso usar o   .env
+  constructor(private jwtSecret = 'mySecret') { }
 
-    constructor()
-
-    const createToken = (data) => {
-        const token = Jwt.sign({ data }, process.env.JWT_SECRET);
-        return token;
-    };
-
-    const validateToken = (token) => {
-        try {
-            const data = jwt.verify(token, process.env.JWT_SECRET);
-            return data;
-        } catch (e) {
-            const error = new Error('Expired or invalid token');
-            error.name = 'TokenNotFoundError';
-            throw error;
-        }
-    };
+  public createToken = (user: User) => {
+    sign({ user }, this.jwtSecret);
+  };
 }
-
-module.exports = { createToken, validateToken };
