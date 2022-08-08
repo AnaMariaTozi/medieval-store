@@ -9,7 +9,7 @@ export default class OrdersController {
   public create = async (req: Request, res: Response) => {
     const order = req.body;
     const orderCreated = await this.ordersService.create(order);
-    res.status(StatusCodes.CREATED).json(orderCreated);
+    return res.status(StatusCodes.CREATED).json(orderCreated);
   };
     
   public getAll = async (_req: Request, res: Response) => {
