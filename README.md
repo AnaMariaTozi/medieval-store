@@ -1,4 +1,4 @@
-# Bem vindo(a) ao repositório da Api Medieval-store
+# Bem vindo(a) ao repositório da API Medieval Store
 <div>
 
 - Nesse projeto, foi desenvolvido um CRUD (Create, Read, Update e Delete) de itens medievais, no formato de uma API, utilizando Typescript.
